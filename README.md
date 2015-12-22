@@ -23,4 +23,4 @@ TODO
 
 ## License
 
-TODO
+This software is provided under the [MIT License](https://opensource.org/licenses/MIT) outlined in the LICENSE.md file of this repository.
