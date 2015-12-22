@@ -3,12 +3,14 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.assets.AssetManager;
 import com.dizydev.robotwars.screens.AbstractScreen;
 import com.dizydev.robotwars.screens.LoadScreen;
+import com.dizydev.robotwars.screens.StartScreen;
 
 // Main game class
 public class RobotWars extends Game {
@@ -28,6 +30,7 @@ public class RobotWars extends Game {
 		// Initialize the dictionary of screens
 		screens = new HashMap<String, AbstractScreen>();
 		screens.put("loadScreen", new LoadScreen(this));
+		screens.put("startScreen", new StartScreen(this));
 		// Set initial screen
 		setScreen("loadScreen");
 	}

@@ -62,7 +62,8 @@ public class LoadScreen extends AbstractScreen {
 		camera.update();
 		// Load and check for finished loading
 		if (game.manager.update()) {
-			// TODO - Loading is finished
+			// Switch to the start screen
+			game.setScreen("startScreen");
 		}
 	}
 
