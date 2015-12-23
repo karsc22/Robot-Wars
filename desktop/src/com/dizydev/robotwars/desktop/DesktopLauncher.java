@@ -9,8 +9,15 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		// Libgdx configuration parameters
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		// Start application in full screen
-		config.fullscreen = true;
+		// Set the title
+		config.title = "Robot Wars";
+		// Foreground FPS
+		config.foregroundFPS = 60;
+		// Background FPS
+		config.backgroundFPS = 60;
+		// Window not resizable
+		config.resizable = false;
+		config.vSyncEnabled = true;
 		// Launch the application
 		new LwjglApplication(new RobotWars(), config);
 	}
