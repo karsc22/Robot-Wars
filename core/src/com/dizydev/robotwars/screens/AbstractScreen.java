@@ -1,5 +1,8 @@
 package com.dizydev.robotwars.screens;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.dizydev.robotwars.RobotWars;
 
 // Abstract screen class
@@ -10,10 +13,14 @@ public abstract class AbstractScreen implements Screen {
 	// Are we currently paused?
 	protected boolean paused = false;
 	
+	protected Stage stage;
+	
 	// Main constructor
 	public AbstractScreen (RobotWars game) {
 		// Initialize the game reference
 		this.game = game;
+
+		stage = new Stage();
 	}
 
 	// On screen show
@@ -59,20 +66,33 @@ public abstract class AbstractScreen implements Screen {
 	}
 
 	// Screen load assets method
-	public abstract void load ();
+	public void load() {}
 
 	// Screen initialize method
-	public abstract void init ();
+	public void init() {}
 
-	// Screen update logic method
-	public abstract void update (float delta);
+	// Update logic
+	public void update (float delta) {
+		// Act the stage
+		stage.act(delta);
+	}
 
-	// Screen draw method
-	public abstract void draw (float delta);
+	// Draw logic
+	public void draw(float delta) {
+		// Clear the screen
+		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-	// Screen resize method
-	public abstract void resize (int width, int height);
+		// Draw the stage
+		stage.draw();
+	}
+
+	// Screen resized
+	public void resize (int width, int height) {
+		// Update the stage viewport
+		stage.getViewport().update(width, height, true);
+	}
 
 	// Screen dispose method
-	public abstract void dispose ();
+	public void dispose () {}
 }

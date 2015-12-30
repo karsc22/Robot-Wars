@@ -16,7 +16,7 @@ public class DesktopLauncher {
 		// Background FPS
 		config.backgroundFPS = 60;
 		// Window not resizable
-		config.resizable = false;
+		config.resizable = true;
 		config.vSyncEnabled = true;
 		// Launch the application
 		new LwjglApplication(new RobotWars(), config);

@@ -19,7 +19,6 @@ import com.dizydev.robotwars.RobotWars;
 // Start screen class
 public class StartScreen extends AbstractScreen {
 
-	private Stage stage;
 	private Table table;
 	private Skin skin;
 
@@ -62,7 +61,7 @@ public class StartScreen extends AbstractScreen {
 		final TextButton newgame = new TextButton("New Game", skin);
 		newgame.addListener(new ClickListener(){
 			public void clicked(InputEvent event, float x, float y){
-				// TODO - Text button on click event
+				game.setScreen("gameScreen");
 			}
 		});
 		table.add(newgame).width(400).height(50).padBottom(10);
@@ -112,7 +111,7 @@ public class StartScreen extends AbstractScreen {
 		// Array of display modes sorted in quality order
 		ArrayList<DisplayMode> modes = game.sortedDisplayModes();
 		// Select box object
-		SelectBox<DisplayMode> modes_box = new SelectBox<DisplayMode>(skin);
+		final SelectBox<DisplayMode> modes_box = new SelectBox<DisplayMode>(skin);
 		// Set the modes box items
 		DisplayMode[] modes_arr = new DisplayMode[modes.size()];
 		modes_arr = modes.toArray(modes_arr);
@@ -167,32 +166,5 @@ public class StartScreen extends AbstractScreen {
 			}
 		});
 		table.add(back).width(400).height(50).padBottom(10);
-	}
-
-	// Update logic
-	public void update (float delta) {
-		// Act the stage
-		stage.act(delta);
-	}
-
-	// Draw logic
-	public void draw(float delta) {
-		// Clear the screen
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		// Draw the stage
-		stage.draw();
-	}
-
-	// Screen resized
-	public void resize (int width, int height) {
-		// Update the stage viewport
-		stage.getViewport().update(width, height, true);
-	}
-
-	// Dispose screen assets
-	public void dispose () {
-		// TODO - Dispose of assets
 	}
 }

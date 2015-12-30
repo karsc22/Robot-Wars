@@ -11,6 +11,7 @@ import com.badlogic.gdx.Graphics.DisplayMode;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.dizydev.robotwars.screens.AbstractScreen;
+import com.dizydev.robotwars.screens.GameScreen;
 import com.dizydev.robotwars.screens.LoadScreen;
 import com.dizydev.robotwars.screens.StartScreen;
 
@@ -54,6 +55,7 @@ public class RobotWars extends Game {
 		screens = new HashMap<String, AbstractScreen>();
 		screens.put("loadScreen", new LoadScreen(this));
 		screens.put("startScreen", new StartScreen(this));
+		screens.put("gameScreen", new GameScreen(this));
 		// Set initial screen
 		setScreen("loadScreen");
 	}
